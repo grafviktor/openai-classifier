@@ -90,3 +90,17 @@ For completeness, these are the model reasoning options:
 | high    | More reasoning                    |
 | xhigh   | Extra-high reasoning              |
 | max     | Maximum reasoning                 |
+
+### Option 3 ###
+
+Download "thinking" model and convert it into a non-thinking. I did not try it.
+
+```bash
+ollama show qwen3:4b > Modelfile
+# replace thinking block into something like that:
+#  <think>
+#  </think>
+
+# Then build a new model. "ollama create" reuses the qwen3:4b weights. It does not download another model.
+ollama create qwen3-classify -f Modelfile
+```
