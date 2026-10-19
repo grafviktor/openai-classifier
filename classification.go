@@ -29,9 +29,9 @@ const (
 )
 
 type Classification struct {
-	Service  `json:"service"`
-	Priority `json:"priority"`
-	Category `json:"category"`
+	Service  Service  `json:"service" jsonschema:"enum=payment,enum=authentication,enum=storage,enum=unknown"`
+	Priority Priority `json:"priority" jsonschema:"enum=low,enum=medium,enum=high"`
+	Category Category `json:"category" jsonschema:"enum=incident,enum=request,enum=question,enum=unknown"`
 }
 
 func (c Classification) Validate() error {

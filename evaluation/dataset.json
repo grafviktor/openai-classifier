@@ -1,0 +1,402 @@
+[
+  {
+    "input": "My card payment was declined this morning.",
+    "expected": {
+      "service": "payment",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "How do I change my password?",
+    "expected": {
+      "service": "authentication",
+      "priority": "low",
+      "category": "question"
+    }
+  },
+  {
+    "input": "Our checkout is completely down and customers cannot pay.",
+    "expected": {
+      "service": "payment",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "I was charged twice for the same subscription this month.",
+    "expected": {
+      "service": "payment",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "Is there a fee for international card payments?",
+    "expected": {
+      "service": "payment",
+      "priority": "low",
+      "category": "question"
+    }
+  },
+  {
+    "input": "Please update the card on file to the new corporate Visa.",
+    "expected": {
+      "service": "payment",
+      "priority": "medium",
+      "category": "request"
+    }
+  },
+  {
+    "input": "My transfer to the vendor is stuck in pending since yesterday.",
+    "expected": {
+      "service": "payment",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "How do I export a transaction history?",
+    "expected": {
+      "service": "payment",
+      "priority": "low",
+      "category": "question"
+    }
+  },
+  {
+    "input": "Please cancel the pending payment to supplier Apex before it settles.",
+    "expected": {
+      "service": "payment",
+      "priority": "high",
+      "category": "request"
+    }
+  },
+  {
+    "input": "I keep getting 'card expired' even after I entered the new expiry date.",
+    "expected": {
+      "service": "payment",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "ACH payments have been failing for about half our customers since 9am.",
+    "expected": {
+      "service": "payment",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "Which payment methods do you accept?",
+    "expected": {
+      "service": "payment",
+      "priority": "low",
+      "category": "question"
+    }
+  },
+  {
+    "input": "Where can I download my invoices?",
+    "expected": {
+      "service": "payment",
+      "priority": "low",
+      "category": "question"
+    }
+  },
+  {
+    "input": "The payment page is slow, but the charge eventually goes through.",
+    "expected": {
+      "service": "payment",
+      "priority": "medium",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "I think I was charged, but I am not sure. Can you check transaction 90412?",
+    "expected": {
+      "service": "payment",
+      "priority": "medium",
+      "category": "request"
+    }
+  },
+  {
+    "input": "Please refund the duplicate charge on order 4821.",
+    "expected": {
+      "service": "payment",
+      "priority": "medium",
+      "category": "request"
+    }
+  },
+  {
+    "input": "I can't log in. The page says my password is incorrect even though I just reset it.",
+    "expected": {
+      "service": "authentication",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "The login button does nothing when I click it.",
+    "expected": {
+      "service": "authentication",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "I can enter my password, but SMS codes for MFA never arrive.",
+    "expected": {
+      "service": "authentication",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "Can you add two-factor authentication to my account?",
+    "expected": {
+      "service": "authentication",
+      "priority": "low",
+      "category": "request"
+    }
+  },
+  {
+    "input": "Please disable my account immediately. I think it was compromised.",
+    "expected": {
+      "service": "authentication",
+      "priority": "high",
+      "category": "request"
+    }
+  },
+  {
+    "input": "Reset the password for user maria.santos and email her a temporary one.",
+    "expected": {
+      "service": "authentication",
+      "priority": "medium",
+      "category": "request"
+    }
+  },
+  {
+    "input": "My session expires every few minutes and I have to log in again.",
+    "expected": {
+      "service": "authentication",
+      "priority": "medium",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "The password reset email never shows up.",
+    "expected": {
+      "service": "authentication",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "Do you support SSO with Okta?",
+    "expected": {
+      "service": "authentication",
+      "priority": "low",
+      "category": "question"
+    }
+  },
+  {
+    "input": "I want to change the email address on my account.",
+    "expected": {
+      "service": "authentication",
+      "priority": "low",
+      "category": "request"
+    }
+  },
+  {
+    "input": "Where do I find the setting for password complexity?",
+    "expected": {
+      "service": "authentication",
+      "priority": "low",
+      "category": "question"
+    }
+  },
+  {
+    "input": "I forgot my username.",
+    "expected": {
+      "service": "authentication",
+      "priority": "low",
+      "category": "request"
+    }
+  },
+  {
+    "input": "What does MFA mean?",
+    "expected": {
+      "service": "authentication",
+      "priority": "low",
+      "category": "question"
+    }
+  },
+  {
+    "input": "Please turn off MFA for the service account. The nightly job has been failing since the policy change.",
+    "expected": {
+      "service": "authentication",
+      "priority": "high",
+      "category": "request"
+    }
+  },
+  {
+    "input": "I can't log in, so I can't pay the invoice.",
+    "expected": {
+      "service": "authentication",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "The file upload keeps failing with a timeout.",
+    "expected": {
+      "service": "storage",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "Please increase my storage quota. I'm almost out of space.",
+    "expected": {
+      "service": "storage",
+      "priority": "medium",
+      "category": "request"
+    }
+  },
+  {
+    "input": "How much storage do I have left?",
+    "expected": {
+      "service": "storage",
+      "priority": "low",
+      "category": "question"
+    }
+  },
+  {
+    "input": "Nothing loads in the file browser and I need those documents for a client meeting in 10 minutes.",
+    "expected": {
+      "service": "storage",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "Can I store video files, or only documents?",
+    "expected": {
+      "service": "storage",
+      "priority": "low",
+      "category": "question"
+    }
+  },
+  {
+    "input": "Please move my archived files to cold storage.",
+    "expected": {
+      "service": "storage",
+      "priority": "low",
+      "category": "request"
+    }
+  },
+  {
+    "input": "Saving large files fails intermittently, but small files still work.",
+    "expected": {
+      "service": "storage",
+      "priority": "medium",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "What does the 'storage quota exceeded' error mean?",
+    "expected": {
+      "service": "storage",
+      "priority": "low",
+      "category": "question"
+    }
+  },
+  {
+    "input": "The shared drive is full and nobody can upload anything.",
+    "expected": {
+      "service": "storage",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "I accidentally deleted a folder. Can you restore it from backup?",
+    "expected": {
+      "service": "storage",
+      "priority": "high",
+      "category": "request"
+    }
+  },
+  {
+    "input": "Add 500 GB to the project archive bucket.",
+    "expected": {
+      "service": "storage",
+      "priority": "low",
+      "category": "request"
+    }
+  },
+  {
+    "input": "Uploads work, but downloaded files are corrupted.",
+    "expected": {
+      "service": "storage",
+      "priority": "high",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "Please create a read-only folder for the auditors.",
+    "expected": {
+      "service": "storage",
+      "priority": "low",
+      "category": "request"
+    }
+  },
+  {
+    "input": "How long are deleted files kept before they are purged?",
+    "expected": {
+      "service": "storage",
+      "priority": "low",
+      "category": "question"
+    }
+  },
+  {
+    "input": "The payment went through, but the receipt PDF will not save to my drive.",
+    "expected": {
+      "service": "storage",
+      "priority": "medium",
+      "category": "incident"
+    }
+  },
+  {
+    "input": "asdfjkl qwerty 12345",
+    "expected": {
+      "service": "unknown",
+      "priority": "low",
+      "category": "unknown"
+    }
+  },
+  {
+    "input": "Thanks!",
+    "expected": {
+      "service": "unknown",
+      "priority": "low",
+      "category": "unknown"
+    }
+  },
+  {
+    "input": "hello???",
+    "expected": {
+      "service": "unknown",
+      "priority": "low",
+      "category": "unknown"
+    }
+  },
+  {
+    "input": "The weather is nice today.",
+    "expected": {
+      "service": "unknown",
+      "priority": "low",
+      "category": "unknown"
+    }
+  }
+]

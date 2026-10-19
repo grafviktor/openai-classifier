@@ -4,10 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"os"
 
 	"github.com/invopop/jsonschema"
-	"github.com/joho/godotenv"
 	"github.com/openai/openai-go/v3"
 	"github.com/openai/openai-go/v3/option"
 	"github.com/openai/openai-go/v3/responses"
@@ -49,17 +47,16 @@ type OpenAIClassifier struct {
 	model  string
 }
 
-func NewOpenAIClassifier(openAIModelName string) (OpenAIClassifier, error) {
-	if err := godotenv.Load(); err != nil {
-		return OpenAIClassifier{}, fmt.Errorf("load .env: %w", err)
-	}
+func NewClassifier(baseUrl, apiKey, modelName string) OpenAIClassifier {
+	client := openai.NewClient(
+		option.WithAPIKey(apiKey),
+		option.WithBaseURL(baseUrl),
+	)
 
-	apiKey := os.Getenv("OPENAI_API_KEY")
-	client := openai.NewClient(option.WithAPIKey(apiKey))
 	return OpenAIClassifier{
 		client: &client,
-		model:  openAIModelName,
-	}, nil
+		model:  modelName,
+	}
 }
 
 func (c OpenAIClassifier) Classify(text string) (Classification, error) {
@@ -82,7 +79,9 @@ func (c OpenAIClassifier) Classify(text string) (Classification, error) {
 		OfInputItemList: responses.ResponseInputParam{
 			responses.ResponseInputItemParamOfMessage(
 				systemInstruction,
-				responses.EasyInputMessageRoleDeveloper,
+				// Role developer is only support by open AI models, it's safer to stick to role 'System'
+				// responses.EasyInputMessageRoleDeveloper,
+				responses.EasyInputMessageRoleSystem,
 			),
 			responses.ResponseInputItemParamOfMessage(
 				text,
@@ -91,23 +90,22 @@ func (c OpenAIClassifier) Classify(text string) (Classification, error) {
 		},
 	}
 
-	resp, err := c.client.Responses.New(
-		context.Background(),
-		responses.ResponseNewParams{
-			Model: c.model,
-			Input: input,
-			Text: responses.ResponseTextConfigParam{
-				Format: responses.ResponseFormatTextConfigUnionParam{
-					OfJSONSchema: &responses.ResponseFormatTextJSONSchemaConfigParam{
-						Name:        "classification",
-						Description: openai.String("Classify a user request"),
-						Schema:      schemaMap,
-						Strict:      openai.Bool(true),
-					},
+	responseParams := responses.ResponseNewParams{
+		Model: c.model,
+		Input: input,
+		Text: responses.ResponseTextConfigParam{
+			Format: responses.ResponseFormatTextConfigUnionParam{
+				OfJSONSchema: &responses.ResponseFormatTextJSONSchemaConfigParam{
+					Name:        "classification",
+					Description: openai.String("Classify a user request"),
+					Schema:      schemaMap,
+					Strict:      openai.Bool(true),
 				},
 			},
 		},
-	)
+	}
+
+	resp, err := c.client.Responses.New(context.Background(), responseParams)
 	if err != nil {
 		return Classification{}, fmt.Errorf("response error: %w", err)
 	}
