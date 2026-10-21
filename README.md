@@ -104,3 +104,31 @@ ollama show qwen3:4b > Modelfile
 # Then build a new model. "ollama create" reuses the qwen3:4b weights. It does not download another model.
 ollama create qwen3-classify -f Modelfile
 ```
+
+## Running in VS Code ##
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Classifier",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${cwd}/cmd/classifier/",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+    },
+    {
+      "name": "Evaluator",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${cwd}/cmd/evaluator/",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+    }
+  ]
+}
+```

@@ -1,4 +1,4 @@
-module init
+module github.com/grafviktor/openai-classifier
 
 go 1.26.3
 
